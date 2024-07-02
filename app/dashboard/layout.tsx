@@ -1,5 +1,10 @@
 import { ReactNode } from 'react'
+import { redirect } from 'next/navigation'
 import { CircleUser, MenuIcon } from 'lucide-react'
+import {
+  LogoutLink,
+  getKindeServerSession,
+} from '@kinde-oss/kinde-auth-nextjs/server'
 
 import { DashboardNavigation } from '../components/DashboardNavigation'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
@@ -18,6 +23,13 @@ export default async function DashboardLayout({
 }: {
   children: ReactNode
 }) {
+  const { getUser } = getKindeServerSession()
+  const user = await getUser()
+
+  if (!user || user.email !== 'tinggaldidisneyland@gmail.com') {
+    return redirect('/')
+  }
+
   return (
     <div className='flex w-full flex-col max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
       <header className='sticky top-0 flex h-16 items-center justify-between gap-4 border-b bg-white'>
@@ -52,10 +64,13 @@ export default async function DashboardLayout({
           <DropdownMenuContent align='end'>
             <DropdownMenuLabel>My Account</DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Logout</DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <LogoutLink>Logout</LogoutLink>
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </header>
+      <main className='my-5'>{children}</main>
     </div>
   )
 }
