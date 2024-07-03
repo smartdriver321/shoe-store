@@ -33,6 +33,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
+import { categories } from '@/app/lib/categories'
 
 export default function ProductCreateRoute() {
   const [lastResult, action] = useFormState(createProduct, undefined)
@@ -140,7 +141,35 @@ export default function ProductCreateRoute() {
             </div>
 
             <div className='flex flex-col gap-3'>
+              <Label>Category</Label>
+              <Select
+                key={fields.category.key}
+                name={fields.category.name}
+                defaultValue={fields.category.initialValue}
+              >
+                <SelectTrigger>
+                  <SelectValue placeholder='Select Category' />
+                </SelectTrigger>
+                <SelectContent>
+                  {categories.map((category) => (
+                    <SelectItem key={category.id} value={category.name}>
+                      {category.title}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <p className='text-red-500'>{fields.category.errors}</p>
+            </div>
+
+            <div className='flex flex-col gap-3'>
               <Label>Images</Label>
+              <input
+                type='hidden'
+                value={images}
+                key={fields.images.key}
+                name={fields.images.name}
+                defaultValue={fields.images.initialValue as any}
+              />
 
               {images.length > 0 ? (
                 <div className='flex gap-5'>
