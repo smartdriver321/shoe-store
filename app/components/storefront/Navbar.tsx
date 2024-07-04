@@ -1,9 +1,14 @@
 import Link from 'next/link'
-import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server'
+import {
+  getKindeServerSession,
+  LoginLink,
+  RegisterLink,
+} from '@kinde-oss/kinde-auth-nextjs/server'
 import { ShoppingBagIcon } from 'lucide-react'
 
 import { NavbarLinks } from './NavbarLinks'
 import { UserDropdown } from './UserDropdown'
+import { Button } from '@/components/ui/button'
 
 export async function Navbar() {
   const { getUser } = getKindeServerSession()
@@ -38,7 +43,15 @@ export async function Navbar() {
               />
             </>
           ) : (
-            <h1>Not authenticated</h1>
+            <div className='hidden md:flex md:flex-1 md:items-center md:justify-end md:space-x-2'>
+              <Button variant='ghost' asChild>
+                <LoginLink>Sign in</LoginLink>
+              </Button>
+              <span className='h-6 w-px bg-gray-200'></span>
+              <Button variant='ghost' asChild>
+                <RegisterLink>Create Account</RegisterLink>
+              </Button>
+            </div>
           )}
         </div>
       </div>
