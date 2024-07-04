@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { MoreHorizontal, PlusCircle, UserIcon } from 'lucide-react'
+import Image from 'next/image'
+import { MoreHorizontal, PlusCircle } from 'lucide-react'
 
 import prisma from '@/app/lib/db'
 import { DropdownMenu } from '@radix-ui/react-dropdown-menu'
@@ -28,7 +29,6 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-import Image from 'next/image'
 
 async function getData() {
   const data = await prisma.product.findMany({
