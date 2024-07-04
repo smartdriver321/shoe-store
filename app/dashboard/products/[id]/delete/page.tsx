@@ -1,6 +1,7 @@
 import Link from 'next/link'
 
 import { SubmitButton } from '@/components/SubmitButtons'
+import { deleteProduct } from '@/app/action'
 import { Button } from '@/components/ui/button'
 import {
   Card,
@@ -9,7 +10,6 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import { deleteProduct } from '@/app/action'
 
 export default function DeleteRoute({ params }: { params: { id: string } }) {
   return (
