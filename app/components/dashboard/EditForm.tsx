@@ -10,7 +10,7 @@ import Image from 'next/image'
 import { type $Enums } from '@prisma/client'
 
 import { SubmitButton } from '@/app/components/SubmitButtons'
-import { editProduct } from '../../action'
+import { editProduct } from '../../actions'
 import { categories } from '../../lib/categories'
 import { productSchema } from '../../lib/zodSchemas'
 import { UploadDropzone } from '@/lib/uploadthing'

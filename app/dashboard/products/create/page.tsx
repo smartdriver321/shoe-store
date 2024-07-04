@@ -8,7 +8,7 @@ import { ChevronLeft, XIcon } from 'lucide-react'
 import { useForm } from '@conform-to/react'
 import { parseWithZod } from '@conform-to/zod'
 
-import { createProduct } from '@/app/action'
+import { createProduct } from '@/app/actions'
 import { categories } from '@/app/lib/categories'
 import { UploadDropzone } from '@/lib/uploadthing'
 import { productSchema } from '@/app/lib/zodSchemas'
@@ -26,7 +26,6 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-
 import {
   Select,
   SelectContent,
