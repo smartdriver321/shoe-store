@@ -1,15 +1,24 @@
 'use client'
 
+import { useState } from 'react'
+import { useFormState } from 'react-dom'
+import { useForm } from '@conform-to/react'
+import { parseWithZod } from '@conform-to/zod'
+import { ChevronLeft, XIcon } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { type $Enums } from '@prisma/client'
 
-import { editProduct } from '../action'
-import { categories } from '../lib/categories'
-import { productSchema } from '../lib/zodSchemas'
+import { SubmitButton } from '@/app/components/SubmitButtons'
+import { editProduct } from '../../action'
+import { categories } from '../../lib/categories'
+import { productSchema } from '../../lib/zodSchemas'
 import { UploadDropzone } from '@/lib/uploadthing'
+import { Label } from '@/components/ui/label'
+import { Input } from '@/components/ui/input'
 import { Switch } from '@/components/ui/switch'
 import { Button } from '@/components/ui/button'
+import { Textarea } from '@/components/ui/textarea'
 import {
   Card,
   CardContent,
@@ -18,16 +27,6 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-
-import { SubmitButton } from '@/components/SubmitButtons'
-import { useState } from 'react'
-import { useFormState } from 'react-dom'
-import { useForm } from '@conform-to/react'
-import { parseWithZod } from '@conform-to/zod'
-import { ChevronLeft, XIcon } from 'lucide-react'
-import { Label } from '@/components/ui/label'
-import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
 import {
   Select,
   SelectContent,

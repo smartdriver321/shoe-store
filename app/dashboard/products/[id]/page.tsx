@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 
-import { EditForm } from '../../EditForm'
+import { EditForm } from '../../../components/dashboard/EditForm'
 import prisma from '@/app/lib/db'
 
 async function getData(productId: string) {

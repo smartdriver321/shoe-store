@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { SubmitButton } from '@/components/SubmitButtons'
+import { SubmitButton } from '@/app/components/SubmitButtons'
 import { deleteProduct } from '@/app/action'
 import { Button } from '@/components/ui/button'
 import {

@@ -6,7 +6,7 @@ import {
   getKindeServerSession,
 } from '@kinde-oss/kinde-auth-nextjs/server'
 
-import { DashboardNavigation } from '../components/DashboardNavigation'
+import { DashboardNavigation } from '../components/dashboard/DashboardNavigation'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Button } from '@/components/ui/button'
 import {
