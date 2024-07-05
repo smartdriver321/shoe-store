@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import { StarIcon } from 'lucide-react'
 
 import prisma from '@/app/lib/db'
+import { addItem } from '@/app/actions'
 import { ShoppingBagButton } from '@/app/components/SubmitButtons'
 import { FeaturedProducts } from '@/app/components/storefront/FeaturedProducts'
 import { ImageSlider } from '@/app/components/storefront/ImageSlider'
@@ -33,6 +34,7 @@ export default async function ProductIdRoute({
   params: { id: string }
 }) {
   const data = await getData(params.id)
+  const addProducttoShoppingCart = addItem.bind(null, data.id)
 
   return (
     <>
@@ -56,7 +58,7 @@ export default async function ProductIdRoute({
 
           <p className='text-base text-gray-700 mt-6'>{data.description}</p>
 
-          <form>
+          <form action={addProducttoShoppingCart}>
             <ShoppingBagButton />
           </form>
         </div>

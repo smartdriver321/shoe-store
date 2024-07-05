@@ -8,7 +8,7 @@ import { ChevronLeft } from 'lucide-react'
 
 import { useForm } from '@conform-to/react'
 import { parseWithZod } from '@conform-to/zod'
-import { UploadDropzone } from '@/lib/uploadthing'
+import { UploadDropzone } from '@/app/lib/uploadthing'
 import { createBanner } from '@/app/actions'
 import { bannerSchema } from '@/app/lib/zodSchemas'
 import { SubmitButton } from '@/app/components/SubmitButtons'

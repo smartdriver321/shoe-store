@@ -10,7 +10,7 @@ import { parseWithZod } from '@conform-to/zod'
 
 import { createProduct } from '@/app/actions'
 import { categories } from '@/app/lib/categories'
-import { UploadDropzone } from '@/lib/uploadthing'
+import { UploadDropzone } from '@/app/lib/uploadthing'
 import { productSchema } from '@/app/lib/zodSchemas'
 import { SubmitButton } from '@/app/components/SubmitButtons'
 import { Button } from '@/components/ui/button'
