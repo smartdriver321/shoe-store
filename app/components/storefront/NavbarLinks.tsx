@@ -35,12 +35,13 @@ export const navbarLinks = [
 
 export function NavbarLinks() {
   const location = usePathname()
+
   return (
     <div className='hidden md:flex justify-center items-center gap-x-2 ml-8'>
       {navbarLinks.map((item) => (
         <Link
-          href={item.href}
           key={item.id}
+          href={item.href}
           className={cn(
             location === item.href
               ? 'bg-muted'
