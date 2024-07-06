@@ -1,5 +1,7 @@
 import Link from 'next/link'
-import { MoreHorizontal, PlusCircle, User2 } from 'lucide-react'
+import { unstable_noStore as noStore } from 'next/cache'
+
+import { MoreHorizontal, PlusCircle } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -39,6 +41,7 @@ async function getData() {
 }
 
 export default async function BannerRoute() {
+  noStore()
   const data = await getData()
 
   return (

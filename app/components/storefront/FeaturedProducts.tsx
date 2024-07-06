@@ -1,4 +1,5 @@
 import { Suspense } from 'react'
+import { unstable_noStore as noStore } from 'next/cache'
 
 import { LoadingProductCard, ProductCard } from './ProductCard'
 import prisma from '@/app/lib/db'
@@ -37,6 +38,7 @@ export function FeaturedProducts() {
 }
 
 async function LoadFeaturedproducts() {
+  noStore()
   const data = await getData()
 
   return (

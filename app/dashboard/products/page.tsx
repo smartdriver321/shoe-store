@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import { unstable_noStore as noStore } from 'next/cache'
+
 import Image from 'next/image'
 import { MoreHorizontal, PlusCircle } from 'lucide-react'
 
@@ -41,6 +43,7 @@ async function getData() {
 }
 
 export default async function ProductsRoute() {
+  noStore()
   const data = await getData()
 
   return (

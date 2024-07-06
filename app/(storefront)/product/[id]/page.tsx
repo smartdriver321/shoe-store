@@ -1,4 +1,6 @@
 import { notFound } from 'next/navigation'
+import { unstable_noStore as noStore } from 'next/cache'
+
 import { StarIcon } from 'lucide-react'
 
 import prisma from '@/app/lib/db'
@@ -33,6 +35,7 @@ export default async function ProductIdRoute({
 }: {
   params: { id: string }
 }) {
+  noStore()
   const data = await getData(params.id)
   const addProducttoShoppingCart = addItem.bind(null, data.id)
 

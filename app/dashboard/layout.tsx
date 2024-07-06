@@ -1,5 +1,7 @@
 import { ReactNode } from 'react'
 import { redirect } from 'next/navigation'
+import { unstable_noStore as noStore } from 'next/cache'
+
 import { CircleUser, MenuIcon } from 'lucide-react'
 import {
   LogoutLink,
@@ -23,6 +25,7 @@ export default async function DashboardLayout({
 }: {
   children: ReactNode
 }) {
+  noStore()
   const { getUser } = getKindeServerSession()
   const user = await getUser()
 

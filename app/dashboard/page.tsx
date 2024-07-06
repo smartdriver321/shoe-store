@@ -1,3 +1,5 @@
+import { unstable_noStore as noStore } from 'next/cache'
+
 import { Chart } from '../components/dashboard/Chart'
 import { DashboardStats } from '../components/dashboard/DashboardStats'
 import { RecentSales } from '../components/dashboard/RecentSales'
@@ -39,6 +41,7 @@ async function getData() {
 }
 
 export default async function Dashboard() {
+  noStore()
   const data = await getData()
 
   return (
