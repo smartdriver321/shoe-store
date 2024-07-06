@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation'
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server'
 import { ShoppingBag } from 'lucide-react'
 
-import { delItem } from '@/app/actions'
+import { checkOut, delItem } from '@/app/actions'
 import { Cart } from '@/app/lib/interfaces'
 import { redis } from '@/app/lib/redis'
 import { CheckoutButton, DeleteItem } from '@/app/components/SubmitButtons'
@@ -80,7 +80,7 @@ export default async function BagRoute() {
               <p>Subtotal:</p>
               <p>${new Intl.NumberFormat('en-US').format(totalPrice)}</p>
             </div>
-            <form>
+            <form action={checkOut}>
               <CheckoutButton />
             </form>
           </div>
